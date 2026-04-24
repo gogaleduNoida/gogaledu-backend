@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admission Partner Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav>
+            <div class="logo-name"><a href="{{url_for('auth.logout')}}">
+                    <div class="logo"><img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="logo"></div>
+                    <div>
+                        <div class="main-name">GogalEdu Academy</div>
+
+                        <div class="sub-container">
+                            <div class="ms-logo">
+                                <img src="{{ url_for('static', filename='images/ms-logo.png') }}" alt="ms-logo">
+                            </div>
+                            <div class="sub-name" id="typewriter"></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="auth-links">
+                {% if current_user %}
+                <a class="btn logout" href="{{ url_for('auth.logout') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
+                        <path fill-rule="evenodd"
+                            d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+                    </svg>
+                    Logout</a>
+                {% else %}
+                <a class="btn login" href="{{ url_for('auth.login') }}"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
+                        <path fill-rule="evenodd"
+                            d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                    </svg>Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <div id="flash-data" data-messages='{{ get_flashed_messages(with_categories=true) | tojson }}'>
+        </div>
+
+        {% block content %}{% endblock %}
+    </section>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "Microsoft Education Partner";
+            const element = document.getElementById("typewriter");
+
+            let index = 0;
+            let isDeleting = false;
+
+            function typeEffect() {
+
+                if (!isDeleting) {
+                    // Typing
+                    element.innerHTML = text.substring(0, index + 1);
+                    index++;
+
+                    if (index === text.length) {
+                        isDeleting = true;
+                        setTimeout(typeEffect, 1000); // pause before delete
+                        return;
+                    }
+                } else {
+                    // Deleting
+                    element.innerHTML = text.substring(0, index - 1);
+                    index--;
+
+                    if (index === 0) {
+                        isDeleting = false;
+                    }
+                }
+
+                setTimeout(typeEffect, isDeleting ? 50 : 80);
+            }
+
+            typeEffect();
+        });
+    </script>
+
+</body>
+
+</html>

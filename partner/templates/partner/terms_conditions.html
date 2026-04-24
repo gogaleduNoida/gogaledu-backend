@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="user-box">
+            <div>
+                <div class="name">Welcome</div>
+                <span>{{ partner_name }}</span>
+            </div>
+        </div>
+
+        <ul>
+            <li>
+                <a href="/partner/dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-border-style" viewBox="0 0 16 16">
+                        <path
+                            d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm8 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-4 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm8 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-4-4a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/partner/create_lead">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Create Lead
+                </a>
+            </li>
+
+            <li>
+                <a href="/partner/payment">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="2" />
+                        <path d="M16 12h2" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Payment Status
+                </a>
+            </li>
+
+            <li>
+                <a href="/partner/profile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" />
+                        <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Profile
+                </a>
+            </li>
+            <li>
+                <a href="/partner/terms_conditions">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-journals" viewBox="0 0 16 16">
+                        <path
+                            d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                        <path
+                            d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                    </svg>
+                    Terms & conditions
+                </a>
+            </li>
+            <li>
+                <a href="/partner/support">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                        <path
+                            d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                    Support
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <div class="dashboard-header">
+            <h2>Terms & Conditions</h2>
+        </div>
+
+<section class="tc_section">
+    <h3>About Payments Chart / Commission</h3>
+    <p>
+        Our commission structure is based on the registration amount.
+        Commission is paid only on <strong>successful student conversions</strong>.
+    </p>
+
+    <p><strong>Conversion means:</strong></p>
+    <ul>
+        <li>Student registration completed</li>
+        <li>Registration amount received by the Company</li>
+        <li>Student officially enrolled in the course</li>
+    </ul>
+
+    <p>
+        Commission is applicable only on <mark>confirmed and paid registrations</mark>.
+        The exact commission amount is defined in the Payment & Commission Chart below.
+    </p>
+
+    <div class="table">
+        <table>
+            <tr>
+                <th>Plan Name</th>
+                <th>Registration Amount (₹)</th>
+                <th>Commission</th>
+                <th>Status</th>
+            </tr>
+            {% for r in registrationPlans %}
+            <tr>
+                <td>
+                    {{ r.plan_name[:20] }}
+                    {% if r.plan_name|length > 20 %}...{% endif %}
+                </td>
+                <td>{{ r.amount }}</td>
+                <td>{{ r.partner_commission }}</td>
+                <td>
+                    {% if r.status == "active" %}
+                        <span style="color: rgb(0, 205, 0); font-weight: bold;">
+                                {{ r.status|upper }}
+                            </span>
+                    {% elif r.status == "inactive" %}
+                            <span style="color: red; font-weight: bold;">
+                                {{ r.status|upper }}
+                            </span>
+                            {% else %}
+                            {{ r.status|upper }}
+                            {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+
+
+<section class="tc_section">
+    <h3>Payment Release Cycle</h3>
+
+    <ul>
+        <li>Commission payments are processed <strong>once every month</strong>.</li>
+        <li>Payment will be released on the <mark>10th of every month</mark>.</li>
+        <li>Calculation period: <strong>1st to last day of previous month</strong>.</li>
+    </ul>
+
+    <p><strong>Example:</strong></p>
+    <ul>
+        <li>Admissions between 1st January – 31st January</li>
+        <li>Commission released on 10th February</li>
+    </ul>
+</section>
+
+
+<section class="tc_section">
+    <h3>Payment Conditions</h3>
+
+    <p><strong>Commission will be paid only if:</strong></p>
+    <ul>
+        <li>Registration fee is successfully received in the company account.</li>
+        <li>No refund request is raised within the refund policy period.</li>
+    </ul>
+
+    <p>
+        <mark>If a student cancels or requests refund before batch start date,
+        commission on that registration will NOT be payable.</mark>
+    </p>
+
+    <p>
+        In case of partial payment by the student, commission will be calculated
+        <strong>proportionally as per received amount</strong>
+        (as per company rules).
+    </p>
+</section>
+
+
+<section class="tc_section">
+    <h3>Mode of Payment</h3>
+
+    <ul>
+        <li>Bank Transfer (NEFT / IMPS / RTGS)</li>
+        <li>UPI (if applicable)</li>
+    </ul>
+
+    <p>
+        Partner must provide <strong>correct bank details in writing</strong>.
+        Incorrect details may cause delay in payouts.
+    </p>
+</section>
+
+
+<section class="tc_section">
+    <h3>Dispute & Adjustment Policy</h3>
+
+    <ul>
+        <li>
+            Any commission-related dispute must be raised within
+            <mark>7 days of payment release</mark>.
+        </li>
+        <li>
+            Company reserves the right to adjust excess or incorrect payments
+            in the next payout cycle.
+        </li>
+    </ul>
+</section>
+
+
+<section class="tc_section">
+    <h3>Partner Eligibility & Profile Policy</h3>
+
+    <ul>
+        <li>Partner must complete profile details before generating leads.</li>
+        <li>Bank details must be verified before commission payout.</li>
+        <li>Bank details can be updated only after proper approval process.</li>
+    </ul>
+</section>
+
+
+<section class="tc_section">
+    <h3>Bank Details Update Policy</h3>
+
+    <p>
+        For security reasons, bank details cannot be edited directly at any time.
+    </p>
+
+    <p>
+        To change bank information, partner must submit a valid reason
+        (minimum <strong>100 characters</strong>).
+    </p>
+
+    <ul>
+        <li>Request will be reviewed by admin team.</li>
+        <li>After approval, bank section will be unlocked.</li>
+        <li>Process may take up to <mark>15 working days</mark>.</li>
+    </ul>
+
+    <p>
+        Providing false or misleading information may result in
+        <strong>delay, rejection, or temporary suspension of payouts</strong>.
+    </p>
+</section>
+
+
+<section class="tc_section">
+    <h3>Policy Modification</h3>
+    <p>
+        The Company reserves the right to modify commission structure
+        or payment cycle with prior written notice to partners.
+    </p>
+</section>
+       
+    </main>
+</div>
+
+{% endblock %}

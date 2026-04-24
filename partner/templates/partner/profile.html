@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="user-box">
+            <div>
+                <div class="name">Welcome</div>
+                <span>{{ partner_name }}</span>
+            </div>
+        </div>
+
+        <ul>
+            <li>
+                <a href="/partner/dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-border-style" viewBox="0 0 16 16">
+                        <path
+                            d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm8 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-4 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm8 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-4-4a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/partner/create_lead">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    Create Lead
+                </a>
+            </li>
+
+            <li>
+                <a href="/partner/payment">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M3 7h18v10H3z" stroke="currentColor" stroke-width="2" />
+                        <path d="M16 12h2" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Payment Status
+                </a>
+            </li>
+
+            <li>
+                <a href="/partner/profile">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2" />
+                        <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                    Profile
+                </a>
+            </li>
+            <li>
+                <a href="/partner/terms_conditions">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journals"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+                        <path
+                            d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
+                    </svg>
+                    Terms & conditions
+                </a>
+            </li>
+            <li>
+                <a href="/partner/support">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" />
+                        <path
+                            d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                    Support
+                </a>
+            </li>
+        </ul>
+
+    </aside>
+
+    <main class="main profile-page">
+
+        <div class="profile-card">
+
+            <div class="profile-svg">
+                {% if partner.profile_image %}
+                <img src="/{{ partner.profile_image }}"
+                    style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+                {% else %}
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 22c0-4 4-6 8-6s8 2 8 6"></path>
+                </svg>
+                {% endif %}
+            </div>
+
+            <h2>{{ partner.name }}</h2>
+            <p class="role">{{ partner.profession }}</p>
+
+            <form method="POST" enctype="multipart/form-data">
+
+                <div class="grid">
+                    <input type="text" name="name" value="{{ partner.name }}" required>
+
+                    <input type="text" value="{{ partner.mobile }}" disabled>
+
+                    <input type="email" value="{{ partner.email }}" disabled>
+
+                    <input type="text" name="profession" value="{{ partner.profession or '' }}"
+                        placeholder="Profession">
+
+                    <select name="firm_category" required>
+                        <option value="">Select Firm Category</option>
+                        {% for cat in firm_categories %}
+                        <option value="{{ cat.id }}" {% if partner.firm_category_id==cat.id %}selected{% endif %}>
+                            {{ cat.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                    <input type="text" name="firm_name" value="{{ partner.firm_name or '' }}" placeholder="Firm Name">
+                </div>
+
+                <div class="grid" style="margin-top:20px;">
+                    <label>Upload Profile Image</label>
+                    {% if partner.profile_image %}
+                    <a href="/{{ partner.profile_image }}" target="_blank">
+                        View Profile Image </a>
+                    {% else %}
+                    <input type="file" name="profile_image" accept="image/*">
+                    {% endif %}
+
+                    <label>Upload Firm Proof</label>
+                    {% if partner.firm_proof %}
+                    <a href="/{{ partner.firm_proof }}" target="_blank">
+                        View Firm Proof </a>
+                    {% else %}
+                    <input type="file" name="firm_proof" accept="image/*,.pdf">
+                    {% endif %}
+                </div>
+
+                <button class="btn profile-btn">Update Profile</button>
+        </div>
+
+        <div class="bank-card">
+            <div class="profile-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+                    <path
+                        d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+                </svg>
+            </div>
+
+            <h2>Bank Details</h2>
+
+            {% if partner.bank_details_locked %}
+            <p><strong>Bank:</strong> {{ partner.bank_name }}</p>
+            <p><strong>Account:</strong> ****{{ partner.account_number[-4:] }}</p>
+            <p><strong>IFSC:</strong> {{ partner.ifsc_code }}</p>
+
+            {% if partner.bank_proof %}
+            <a href="/{{ partner.bank_proof }}" target="_blank">
+                View Bank Proof
+            </a>
+            {% endif %}
+
+            <p style="color:red;">Bank details are locked</p>
+
+            {% else %}
+            <div class="grid">
+                <input name="bank_name" placeholder="Bank Name">
+                <input name="account_holder_name" placeholder="Account Holder Name">
+                <input name="account_number" placeholder="Account Number">
+                <input name="ifsc_code" placeholder="IFSC Code">
+                <input type="file" name="bank_proof" accept="image/*,.pdf">
+            </div>
+            <button class="btn profile-btn">Save Bank Details</button>
+            {% endif %}
+            </form>
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}

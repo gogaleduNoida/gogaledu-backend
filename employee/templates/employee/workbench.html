@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="user-box">
+            <div>
+                <div class="name">Welcome</div>
+                <span>{{ employee.name|upper}}</span>
+            </div>
+        </div>
+        <ul>
+            <li><strong>Mobile:</strong> {{ employee.mobile }}</li>
+            <li><strong>Email:</strong> {{employee.email if employee.email else 'Not Set'}}</li>
+            <li><strong>Role: </strong>{{employee.role|upper if employee.role else 'Not Set'}}</li>
+            <li><strong>Assigned State:</strong> {{ employee.state|upper if employee.state else 'Not Set'}}</li>
+            <li><strong>Assigned District: </strong>{{employee.district|upper if employee.district else 'Not Set'}}</li>
+            <li><strong>Joining Date:</strong> {{ employee.joining_date.strftime('%d-%m-%Y') if employee.joining_date else 'Not Set' }}</li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <div class="dashboard-header">
+            <h2>Employee Workbench</h2>
+        </div>
+
+        <div class="table">
+            <table>
+                <tr>
+                    <th>Student</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Profession</th>
+                    <th>Created By</th>
+                    <th>Created At</th>
+                    <th>Remark</th>
+                    <th>Action</th>
+                </tr>
+                {% for l in leads %}
+                <tr>
+                    <td>{{ l.student_name }}</td>
+                    <td><a href="tel:{{ l.mobile }}">{{ l.mobile }}</a></td>
+                    <td>{{ l.email }}</td>
+                    <td>{{ l.current_status }}</td>
+                    <td>{{ l.partner.name if l.partner and l.partner.name else 'Admin' }}</td>
+                    <td>{{ l.created_at.strftime('%d %b %Y') }}</td>
+                    <td>
+                        {{ l.remark[:25] ~ '...' if l.remark and l.remark|length > 40 else (l.remark or '-') }}
+                    </td>
+                    <td>
+                        <button class="btn update" data-lead-id="{{ l.id }}" data-remark="{{ l.remark | e }}"
+                            data-updated="{{ l.remark_updated_at_ist.strftime('%d %b %Y %I:%M %p') if l.remark_updated_at_ist else '' }}"
+                            onclick="openRemarkModal(this)">
+                            Add Remark
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <div id="remarkModal" class="modal">
+                <div class="modal-content">
+                    <h3>Add Remark</h3>
+
+                    <form method="POST" action="/employee/add-remark">
+                        <input type="hidden" id="lead_id" name="lead_id">
+
+                        <textarea id="remark" name="remark" placeholder="Enter remark..." required></textarea>
+
+                        <div class="remark-meta">
+                            <span id="remarkUpdated" class="updated-text"></span>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="submit" class="save">Save</button>
+                            <button type="button" class="cancel" onclick="closeRemarkModal()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+</div>
+{% endblock %}

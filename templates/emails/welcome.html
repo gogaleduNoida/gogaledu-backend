@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            background: #ffffff;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .footer {
+            font-size: 12px;
+            color: gray;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <img src="{{ logo_url }}" class="logo" />
+
+        <h2>🎉 Welcome {{ name }}!</h2>
+
+        <p>You have successfully registered with <b>{{ company }}</b></p>
+
+        <p><b>Date:</b> {{ date }}</p>
+
+        <a href="{{ website_url }}" class="btn">Visit Website</a>
+
+        <div class="footer">
+            📍 {{ address }} <br>
+            📞 {{ phone }}
+        </div>
+
+    </div>
+</body>
+
+</html>

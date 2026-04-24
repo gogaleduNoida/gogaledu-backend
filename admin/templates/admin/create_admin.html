@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="main">
+    <h2>Create Admin</h2>
+
+    <form method="POST" class="form-container">
+        <label>Name</label>
+        <input name="name" required>
+
+        <label>Mobile</label>
+        <input name="mobile" required>
+
+        <label>Email</label>
+        <input name="email" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <button class="btn">Create Admin</button>
+    </form>
+</div>
+{% endblock %}
